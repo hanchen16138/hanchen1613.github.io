@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>满屏飘字浪漫效果</title>
+    <title>想对ACE说</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%); /* 浅橘色渐变背景 */
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
             height: 100vh;
             overflow: hidden;
             color: #333;
@@ -27,7 +27,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: #fff5e6; /* 浅橘色 */
+            background: #fff5e6;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 40px;
@@ -52,7 +52,7 @@
         
         .welcome-title {
             font-size: 28px;
-            color: #e67e22; /* 橘色 */
+            color: #e67e22;
             margin-bottom: 15px;
             font-weight: 600;
         }
@@ -61,11 +61,11 @@
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 30px;
-            color: #d35400; /* 深橘色 */
+            color: #d35400;
         }
         
         .welcome-btn {
-            background: #e67e22; /* 橘色 */
+            background: #e67e22;
             color: white;
             border: none;
             padding: 12px 30px;
@@ -78,7 +78,7 @@
         }
         
         .welcome-btn:hover {
-            background: #d35400; /* 深橘色 */
+            background: #d35400;
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(211, 84, 0, 0.4);
         }
@@ -100,11 +100,12 @@
             opacity: 0;
             transition: opacity 0.5s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
-            max-width: 200px;
+            max-width: 220px;
             text-align: center;
             cursor: default;
             user-select: none;
             animation: popupFloat 15s infinite linear;
+            will-change: transform;
         }
         
         @keyframes popupFloat {
@@ -138,7 +139,7 @@
             transform: translateX(-50%);
             display: flex;
             gap: 15px;
-            background: #fff5e6; /* 浅橘色 */
+            background: #fff5e6;
             padding: 15px 25px;
             border-radius: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -146,13 +147,15 @@
             opacity: 0;
             transition: opacity 0.5s ease;
             border: 1px solid #ffd8b3;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .btn {
             padding: 10px 20px;
             border: none;
             border-radius: 20px;
-            background: #e67e22; /* 橘色 */
+            background: #e67e22;
             color: white;
             cursor: pointer;
             transition: all 0.3s;
@@ -161,7 +164,7 @@
         }
         
         .btn:hover {
-            background: #d35400; /* 深橘色 */
+            background: #d35400;
             transform: translateY(-2px);
         }
         
@@ -171,51 +174,149 @@
         
         /* 橘色系弹窗样式 */
         .popup-style-1 {
-            background: #fff5e6; /* 浅橘 */
+            background: #fff5e6;
             color: #e67e22;
             border: 1px solid #ffd8b3;
         }
         
         .popup-style-2 {
-            background: #ffd8b3; /* 浅橘黄 */
+            background: #ffd8b3;
             color: #d35400;
             border: 1px solid #ffc899;
         }
         
         .popup-style-3 {
-            background: #ffb366; /* 橘黄 */
+            background: #ffb366;
             color: white;
             border: 1px solid #ffa64d;
         }
         
         .popup-style-4 {
-            background: #ff9933; /* 橘色 */
+            background: #ff9933;
             color: white;
             border: 1px solid #ff8c1a;
         }
         
         .popup-style-5 {
-            background: #e67e22; /* 深橘 */
+            background: #e67e22;
             color: white;
             border: 1px solid #d35400;
         }
         
         .popup-style-6 {
-            background: #d35400; /* 深橘红 */
+            background: #d35400;
             color: white;
             border: 1px solid #bf4800;
         }
         
         .popup-style-7 {
-            background: #ffcc99; /* 浅橘粉 */
+            background: #ffcc99;
             color: #d35400;
             border: 1px solid #ffbf80;
         }
         
         .popup-style-8 {
-            background: #ffad5c; /* 橘橙 */
+            background: #ffad5c;
             color: white;
             border: 1px solid #ff9933;
+        }
+        
+        /* 最终汇聚弹窗样式 */
+        .final-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(211, 84, 0, 0.5);
+            padding: 40px 60px;
+            text-align: center;
+            max-width: 600px;
+            width: 80%;
+            z-index: 2000;
+            opacity: 0;
+            transition: all 1.5s ease;
+            border: 3px solid #ffd8b3;
+        }
+        
+        .final-message.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .final-text {
+            font-size: 24px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .welcome-popup {
+                padding: 30px 20px;
+            }
+            
+            .welcome-title {
+                font-size: 24px;
+            }
+            
+            .welcome-text {
+                font-size: 16px;
+            }
+            
+            .controls {
+                bottom: 15px;
+                padding: 10px 15px;
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            
+            .final-message {
+                padding: 30px 20px;
+            }
+            
+            .final-text {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .welcome-popup {
+                padding: 20px 15px;
+            }
+            
+            .welcome-title {
+                font-size: 20px;
+            }
+            
+            .welcome-text {
+                font-size: 14px;
+            }
+            
+            .controls {
+                bottom: 10px;
+                padding: 8px 12px;
+                gap: 8px;
+            }
+            
+            .btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+            
+            .final-message {
+                padding: 20px 15px;
+            }
+            
+            .final-text {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -234,65 +335,95 @@
         <!-- 飘动的弹窗文字将在这里生成 -->
     </div>
     
+    <!-- 最终汇聚消息 -->
+    <div class="final-message" id="finalMessage">
+        <div class="final-text">我们都爱着你，请继续好好走下去吧</div>
+    </div>
+    
     <div class="controls" id="controls">
         <button class="btn" id="pauseBtn">暂停</button>
         <button class="btn" id="addBtn">添加弹窗</button>
         <button class="btn" id="clearBtn">清空</button>
-        <button class="btn" id="themeBtn">切换主题</button>
+        <button class="btn" id="gatherBtn">汇聚</button>
     </div>
 
     <script>
         const texts = [
+            "艾斯，你只是站在那里，就会有人心甘情愿的爱你",
+            "你的诞生是世界上最美好的事之一",
+            "我们一直一直都期盼你的未来！",
+            "最好的哥哥",
+            "我们爱你，你的存在是有意义的，很幸运能遇见你",
+            "幸福请降临艾斯手心",
+            "艾斯，你能出生真是太好了",
             "你的诞生啊，是世界上最好的礼物",
-            "你的存在让世界更美好",
-            "每个人都因你而微笑",
-            "你是独一无二的存在",
-            "世界因你而不同",
-            "你的生命是珍贵的",
-            "你值得被爱和被珍惜",
-            "你的故事才刚刚开始",
-            "每一天都因你而特别",
-            "你是希望的象征",
-            "你的未来充满无限可能",
-            "你让这个世界更温暖",
-            "你的笑容能照亮一切",
-            "你是生命的奇迹",
-            "世界需要你的存在",
-            "你的价值无可替代",
-            "你是爱与希望的化身",
-            "你的生命是美丽的诗篇",
-            "你让世界变得更精彩",
-            "你是最特别的存在",
-            "你的存在本身就是一种美好",
-            "你是这个世界的光",
-            "你的生命值得庆祝",
-            "你让每一天都变得有意义",
-            "你是独一无二的星星",
-            "你的故事值得被讲述",
-            "你让世界充满希望",
-            "你的存在让一切不同",
-            "你是无可替代的",
-            "你的生命是宝贵的礼物",
-            "你给世界带来了温暖",
-            "你是如此重要",
-            "你的存在让生命更完整",
-            "你是世界的宝藏",
-            "你的笑容是最美的风景",
-            "你值得所有的美好",
-            "你是生命的礼物",
-            "你的存在本身就是答案",
-            "你是无可比拟的",
-            "你的光芒照亮了世界",
-            "你是勇敢的战士",
-            "你的心是善良的",
-            "你值得被看见",
-            "你是独特的个体",
-            "你的存在有意义",
-            "你是生命的奇迹",
-            "你是希望的灯塔",
-            "你的故事激励着他人",
-            "你是不可替代的",
-            "你是世界的一部分"
+            "艾斯，你最后说你没有遗憾，可是无数人因你而遗憾啊，你能生下来，你能活着真是太好了",
+            "希望艾斯可以多爱自己一点！",
+            "艾斯你是最好的哥哥 也是最好的自己",
+            "请幸福降临艾斯手心",
+            "所有人拿智能手机跟我一起说全世界最好的哥哥",
+            "无论发生什么，我们都会支持他陪伴他",
+            "哥哥是最伟大的",
+            "你的诞生就是这世间最好的事  我的太阳   我一直在等你回来",
+            "笨蛋艾斯，你可是在妈妈的期待与爱中诞生的！你如果没有生下来那路飞萨博还有我们怎么办😭你生下来是世界上最好的礼物，很多人因为你才变得更幸福啊！",
+            "艾斯呀  太阳的出生怎么会是坏事呢 我只遗憾不能抱到你",
+            "艾斯你能出生在这个世界上真是太好了",
+            "你是妈妈最珍贵的宝贝，是妈妈留给这个世界最后的礼物",
+            "谢谢你的诞生，谢谢你的存在",
+            "你存在的每一秒，都是大海馈赠给世界的礼物",
+            "你的记忆都是大海写给世界的情书",
+            "你的存在对很多人都意义重大",
+            "希望你活下来的不只有妈妈",
+            "艾斯你就是一个小太阳，耀眼而温暖。",
+            "请你永远开心的活着啊",
+            "最好的你，永远自由了",
+            "你的出生是一件好事，非常有意义，谢谢你的存在",
+            "路飞和萨博都很想你",
+            "要幸福",
+            "最好的人",
+            "最好的 尼酱   是每一个海米心中的遗憾与白月光 也许在另外一个平行世界尼酱有好好活着呀",
+            "艾斯，其实我很想看到你长大",
+            "感谢你的出生，asl三小只都最棒了",
+            "要幸福啊，艾斯，能够与你在这个世界上相遇真是太好了",
+            "我想说，哥哥，你生下来是好事，是无数人仰慕憧憬的对象，我尊重并理解你的离开，可至今想起那个画面我还是会泪流满面，如果可以……能不能慢些走，让我再看看你，我真的很想你，我总在想，如果你看到现在的路飞会是什么表情，看到萨博还活着又会是什么表情？在天堂，你一定笑得很开心吧！你一定依偎在白胡子身边炫耀着，像多年前那样，我一直觉得，你就是罗杰留在世间的宝藏",
+            "想你 你是最好的哦尼基",
+            "你的出生本身就是奇迹",
+            "艾斯 永远都爱你",
+            "遇见你是上天的恩赐",
+            "艾斯你是一个带着很多很多爱的人呀",
+            "艾斯，你能出生真是太好了，你的存在就是最大的意义请一定要坚定的活下去",
+            "好感动好爱艾斯！大家都很想你啊",
+            "还好你出现了才有了现在的我今天",
+            "你的到来是可以让许多人感到幸福的一件事",
+            "艾斯你的诞生  当然是好事！！！",
+            "艾斯，你的出生是这个世界最大的幸运",
+            "你要活下去",
+            "路飞有在好好长大哦，也遇到萨博了呢，伙伴都很靠谱呢，我想说的是，你能出生，真的是太好了",
+            "是的哥哥你的出生是世界上最好的事情，无论哪里的大家都很爱你，最喜欢你了！",
+            "艾斯我们都一直一直爱着你",
+            "感谢你诞生在这个世界上",
+            "感谢你能够出生 你的到来 让我们见到这个鲜活的你",
+            "你的出生是上天赐予世界最好的礼物，世界上的任何一个角落都有人在热烈的爱着热烈的你",
+            "宝宝……永远爱你",
+            "谢谢你成为艾斯",
+            "你的出生实在太好了 你是妈妈拼尽全力在爱里诞下的孩子 你是照顾路飞萨博最好的大哥 你是最厉害的白胡子二队队长 你是可是在旅途中温暖很多人的艾斯！大家都很爱你！因为你本来就是很好很好的人 ！",
+            "没有人生来就有罪。越是被诅咒的宿命，越要活成炽热的太阳啊！永远喜欢这个伟大航路永不熄灭的火焰🔥",
+            "感谢你是那最耀眼的太阳，使我借着你的光走出黑暗",
+            "艾斯宝宝，你真的很好很好",
+            "怎么可能会是坏事啊",
+            "你的出生是我最开心的事情，你的存在即为意义。大家都很喜欢你呢，剩下的路一定要一直幸福",
+            "你的存在是有意义的！！",
+            "艾斯你的出生是我们所有人的礼物",
+            "艾斯是 大航海时代  的礼物",
+            "是，从未见过你这般鲜活肆意的人",
+            "感谢你的出现",
+            "当然了艾斯，你能出生真是太好了",
+            "你真的是个很好的哥哥，你的存在是很美好的事情",
+            "艾斯的出生  才不是件坏事呢！因为艾斯，萨博和路飞有了会保护他们的哥哥，达旦有了可以牵挂儿子，小奥兹有了会善待他的朋友……总之，艾斯的出生是很伟大很伟大的事！",
+            "你的出生对我们来说真的是一件很幸福的事",
+            "艾斯哥！路飞、萨博、大和还有好多好多人都很想你！艾斯哥你能出生真是太好了",
+            "艾斯你能出生真的是世界上最棒的事情了！在你不知道的世界上有許多希望你活下來的人啊！",
+            "艾斯你能出生真是太好了，我能认识你真是太好了"
         ];
         
         const popupStyles = [
@@ -302,9 +433,10 @@
         ];
         
         let isPaused = false;
-        let isDarkTheme = false;
         const textPopups = [];
         let popupInterval;
+        let popupCount = 0;
+        const totalPopups = 50;
         
         // 显示欢迎弹窗
         document.getElementById('confirmBtn').addEventListener('click', function() {
@@ -324,12 +456,19 @@
         
         function startPopupSequence() {
             let index = 0;
-            const totalPopups = 50; // 增加到50个弹窗
             
             popupInterval = setInterval(() => {
                 if (index < totalPopups) {
                     createTextPopup();
                     index++;
+                    popupCount++;
+                    
+                    // 当所有弹窗都创建后，自动开始汇聚
+                    if (popupCount === totalPopups) {
+                        setTimeout(() => {
+                            startGathering();
+                        }, 1000); // 缩短等待时间
+                    }
                 } else {
                     clearInterval(popupInterval);
                 }
@@ -353,7 +492,7 @@
             
             // 随机初始位置
             const containerRect = container.getBoundingClientRect();
-            const x = Math.random() * (containerRect.width - 200);
+            const x = Math.random() * (containerRect.width - 220);
             const y = Math.random() * (containerRect.height - 100);
             
             textPopup.style.left = `${x}px`;
@@ -384,48 +523,52 @@
             return popupData;
         }
         
-        function toggleTheme() {
-            isDarkTheme = !isDarkTheme;
-            const body = document.body;
+        function startGathering() {
+            // 注意：这里不再停止弹窗的浮动动画，让它们继续移动直到汇聚开始
             
-            if (isDarkTheme) {
-                body.style.background = '#2c3e50'; /* 深蓝色背景 */
-                document.querySelector('.controls').style.background = '#34495e';
-                document.querySelector('.controls').style.color = '#ecf0f1';
-                document.querySelector('.controls').style.border = '1px solid #2c3e50';
-            } else {
-                body.style.background = 'linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%)'; /* 浅橘色渐变 */
-                document.querySelector('.controls').style.background = '#fff5e6';
-                document.querySelector('.controls').style.color = '#333';
-                document.querySelector('.controls').style.border = '1px solid #ffd8b3';
-            }
+            // 获取最终消息的位置
+            const finalMessage = document.getElementById('finalMessage');
+            const containerRect = document.getElementById('container').getBoundingClientRect();
+            const centerX = containerRect.width / 2;
+            const centerY = containerRect.height / 2;
+            
+            // 让所有弹窗向中心汇聚 - 加快汇聚速度
+            document.querySelectorAll('.text-popup').forEach((popup, index) => {
+                // 停止浮动动画，开始汇聚
+                popup.style.animation = 'none';
+                
+                setTimeout(() => {
+                    // 加快汇聚动画速度
+                    popup.style.transition = 'all 0.8s ease'; // 从1.5秒缩短到0.8秒
+                    popup.style.transform = `translate(${centerX - parseFloat(popup.style.left)}px, ${centerY - parseFloat(popup.style.top)}px) scale(0)`;
+                    popup.style.opacity = '0';
+                }, index * 15); // 大幅缩短错开时间，从30ms到15ms
+            });
+            
+            // 显示最终消息 - 提前显示
+            setTimeout(() => {
+                finalMessage.classList.add('active');
+            }, 800); // 从1000ms缩短到800ms
         }
         
-        // 控制功能
-        document.getElementById('pauseBtn').addEventListener('click', function() {
+        function togglePause() {
             isPaused = !isPaused;
-            this.textContent = isPaused ? '继续' : '暂停';
+            document.getElementById('pauseBtn').textContent = isPaused ? '继续' : '暂停';
             
-            if (isPaused) {
-                clearInterval(popupInterval);
-                document.querySelectorAll('.text-popup').forEach(popup => {
-                    popup.style.animationPlayState = 'paused';
-                });
-            } else {
-                document.querySelectorAll('.text-popup').forEach(popup => {
-                    popup.style.animationPlayState = 'running';
-                });
-            }
-        });
+            document.querySelectorAll('.text-popup').forEach(popup => {
+                popup.style.animationPlayState = isPaused ? 'paused' : 'running';
+            });
+        }
         
-        document.getElementById('addBtn').addEventListener('click', function() {
+        function addPopups() {
             // 一次添加10个弹窗
             for (let i = 0; i < 10; i++) {
                 createTextPopup();
+                popupCount++;
             }
-        });
+        }
         
-        document.getElementById('clearBtn').addEventListener('click', function() {
+        function clearPopups() {
             const container = document.getElementById('container');
             // 只清除弹窗
             const popups = container.querySelectorAll('.text-popup');
@@ -433,9 +576,26 @@
                 container.removeChild(popup);
             });
             textPopups.length = 0;
-        });
+            popupCount = 0;
+            
+            // 隐藏最终消息
+            document.getElementById('finalMessage').classList.remove('active');
+        }
         
-        document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+        // 控制功能
+        document.getElementById('pauseBtn').addEventListener('click', togglePause);
+        
+        document.getElementById('addBtn').addEventListener('click', addPopups);
+        
+        document.getElementById('clearBtn').addEventListener('click', clearPopups);
+        
+        document.getElementById('gatherBtn').addEventListener('click', function() {
+            if (textPopups.length > 0) {
+                startGathering();
+            }
+        });
     </script>
 </body>
+
 </html>
+
